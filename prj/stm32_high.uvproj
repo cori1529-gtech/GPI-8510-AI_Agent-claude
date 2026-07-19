@@ -74,10 +74,10 @@
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
           </BeforeMake>
           <AfterMake>
-            <RunUserProg1>1</RunUserProg1>
+            <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>1</RunUserProg2>
             <UserProg1Name>"F:\__Cloud\Dropbox\___prj\Ce-08-03.GPI-8310(GATEWAY)\main\clean\prj\iap_merge-lte-212.bat"</UserProg1Name>
-            <UserProg2Name>C:\Keil\ARM\BIN40\fromelf.exe --bin "#L" -o "$P\..\obj\gpi-8310-main.bin"</UserProg2Name>
+            <UserProg2Name>C:\Keil\ARM\ARMCC\bin\fromelf.exe --bin "#L" -o "$P\..\obj\gpi-8310-main.bin"</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>1</UserProg2Dos16Mode>
           </AfterMake>
