@@ -698,7 +698,7 @@ __enable_irq();
  GLCD_string (0,6 ,"  CONTROLLER  ");
  Delay_ms(3000);
  lcd_clear();
- GLCD_string (0,2 ,"   CLAUDE   ");
+ GLCD_string (0,2 ,"   CLAUDE1   ");
  GLCD_string (0,4 ,"   VER 4.0 ");  //   2025³â 6¿ù 30ÀÏ, 
  
  Delay_ms(3000);
