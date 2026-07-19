@@ -1,0 +1,52 @@
+/*
+	sms.c
+	
+	2014.8.27
+*/					
+
+/*
+	AM200
+ 	TE2->MT2 AT$LGTSNDSM=receiveNo,sendNo,TI,msg
+	 1) receiveNo : 수신자 번호
+	 2) sendNo : 발신자 번호
+	 3) TI : 문자서비스 4098
+	 4) msg : 보내고 하는 메시지
+	TE2<-MT2 $LGTSNDSN:MSGnum,time,result
+	 1) 메시지 번호
+	 2) 전송 시간 표시
+	 3) 성공시 : OK,  실패시 : Fail
+
+	cdma_send_cmd(char *cmd, int length)
+*/
+
+#include <stdio.h>
+#include "tcpip_send.h"
+
+#define MAX_giSMSSendingRetry	3
+volatile int giSMSSendingRetry = 0;	
+volatile int giSMSSendingFlag = 0;
+
+int send_sms_1x(char *receive_telno, char *msg)
+{
+	char sms[200];
+
+//	sprintf(sms, "AT$LGTSNDSM=%s,%s,4098,\"%s\"", receive_telno, send_telno, msg);
+	sprintf(sms, "AT$LGTSNDSM=%s,,4098,\"%s\"", receive_telno, msg);
+	cdma_send_cmd(sms, strlen(sms));
+
+	return 1;
+}
+
+// LU-200
+int send_sms(char *receive_telno, char *msg)
+{
+	char sms[200];
+
+//	sprintf(sms, "AT$LGTSNDSM=%s,%s,4098,\"%s\"", receive_telno, send_telno, msg);
+	sprintf(sms, "AT$LGTSNDSM=%s,0,0,\"%s\"", receive_telno, msg);
+	cdma_send_cmd(sms, strlen(sms));
+
+	return 1;
+}
+
+/* end of file */

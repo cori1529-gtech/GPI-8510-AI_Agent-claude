@@ -1,0 +1,8 @@
+{
+    "[c]": {
+        "files.encoding": "cp949"
+    },
+    "[cpp]": {
+        "files.encoding": "cp949"
+    }
+}

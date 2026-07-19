@@ -1,0 +1,3 @@
+@echo off
+copy F:\__Cloud\Dropbox\___prj\Ce-08-03.GPI-8310(GATEWAY)\iap\GPI-8310(IAP)\IAP_AN\project\RVMDK\Obj\boot_flash.hex + F:\__Cloud\Dropbox\___prj\Ce-08-03.GPI-8310(GATEWAY)\main\clean\obj\gpi-8310.hex F:\__Cloud\Dropbox\___prj\Ce-08-03.GPI-8310(GATEWAY)\main\clean\obj\gpi-8310m.hex
+#copy F:\__Cloud\Dropbox\___prj\Ce-08-03.GPI-8310(GATEWAY)\iap\iap_8310_usart3\IAP_AN\project\RVMDK\Obj\boot_flash.hex + F:\__Cloud\Dropbox\___prj\Ce-08-03.GPI-8310(GATEWAY)\main\clean\obj\gpi-8310.hex F:\__Cloud\Dropbox\___prj\Ce-08-03.GPI-8310(GATEWAY)\main\clean\obj\gpi-8310m.hex
