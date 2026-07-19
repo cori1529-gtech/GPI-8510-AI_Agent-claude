@@ -47,8 +47,8 @@ unsigned long  gnlLcCompensation;	// ·Îµå¼¿ Á×¾úÀ» ¶§ º¸»ó ON/OFF
  unsigned int gnuDay;
  int		  giToday;
  
- unsigned long gnlDailyTotal2;
- volatile unsigned long gnlPreDailyTotal2[7];
+ signed long gnlDailyTotal2;
+ volatile signed long gnlPreDailyTotal2[7];
  unsigned int gnuDay2;
  int		  giToday2;
  

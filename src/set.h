@@ -23,7 +23,7 @@ extern unsigned long gxuPulseSetWeigh;
 extern unsigned long gxuOutputErrorWeigh;    
 extern unsigned long gxuOutputHighErrorWeigh;   
 extern  signed long gplCompensationWeight;  
-extern	unsigned long gnlDailyTotal;
+extern	signed long gnlDailyTotal;
 extern unsigned char gnhToday;
 extern unsigned char Reg_Tel[20];
 extern unsigned char Sms_Time[10];
@@ -45,7 +45,7 @@ extern unsigned char	working_flag ;
 //	unsigned char byErrorCounter _at_	0xF83A;	// Ver 1.26
 //	unsigned long gnlHighLimit	_at_	0xF83B;	// Ver 1.30
 //	unsigned long gnlHighFall	_at_	0xF83F;	// Ver 1.30
-extern	unsigned long gnlPreDailyTotal[7];
+extern	volatile signed long gnlPreDailyTotal[7];
 //	unsigned long gnlPreOutput	_at_	0xF860;	// Ver 1.30 ~ 63
 extern	unsigned char gnhDay;
     
