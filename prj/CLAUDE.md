@@ -151,40 +151,69 @@ NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x3000);   // bsp_init_interrupt()
 
 ## 4. 소프트웨어 구조
 
-### 4.1 파일 구성 (현재)
+### 4.1 파일 구성 (2026-07-20 갱신 — 4계층 구조 적용 완료)
+
 ```
-src/
-├── main.c              ★ 약 8,000줄 — 메인 루프, Agent 태스크, 비즈니스 로직 (리팩토링 대상)
-├── def.h               버전, FSMC 매크로, 버퍼 크기 상수
-├── global.h/.c         서버 IP/포트, 시간 상수, CDMA 상태머신 정의, 전역 큐 extern
-├── type.h              공용 타입 정의 (q_node_type 등)
-├── hw_config.c/.h      클럭(bsp_init_rcc)/I2C핀/인터럽트(벡터 0x3000!) 초기화, 비트밴딩 매크로, busy-wait Delay
-├── usart.c             USART1~4 초기화(USARTx_Initial), IRQ 핸들러, 송수신 함수
-├── queue.c             노드 큐 시스템 (q_add_tail, q_remove_tail, q_get_count)
-├── adc.c               CS5555/ADS1251 로드셀 ADC 드라이버
-├── agent_input_filter.c  입력 필터링
-├── agent_weight.c      무게 계산
-├── CAL.C               ★ 캘리브레이션 모드 (2,400줄): cal_mode/calc_factor/zero_span_set, 사일로 1/2 이중화
-├── SET.C               설정 모드 (read_factors/write_factors 정의 추정 위치)
-├── rs485.c             RS-485 통신
-├── zigbee.c            Zigbee 통신
-├── sms.c               SMS 처리
-├── tcpip_send.c        서버 전송 (모뎀 TCP/IP)
-├── parsing.c           수신 패킷 파싱
-├── i2c_ee.c            EEPROM (I2C1 하드웨어)
-├── sflash.c            W25Q128 SPI Flash
-├── spi.c               SPI 드라이버
-├── rtc.c               HT1381 RTC
-├── lcd.c / lcd70.c     LCD 드라이버 (lcd70 = 폰트 출력)
-├── font.c / icon.c     폰트/아이콘 데이터
-├── key.c               키 입력 (+ bsp_key_gpio_init 추정)
-├── led.c / buzzer.c    LED / 부저
-├── timer.c             타이머 (TIM2 = 10ms 타임베이스 추정)
-├── var.c               전역 변수
-└── stm32f10x_it.c      인터럽트 핸들러
+app/      비즈니스 로직 (Agent_* 태스크 — main.c에서 추출됨)
+├── agent_baichul_send.c          배출정보 서버 전송 (Agent_BaichulSend_Task)
+├── agent_cdma_task.c              모뎀 수신 처리 (Agent_CdmaTask)
+├── agent_date_change.c            날짜 변경 이벤트 (Agent_DateChange_Task)
+├── agent_discharge_calc.c         배출량 계산 (Agent_DischargeCalc_Task)
+├── agent_discharge_input.c        배출 시작/정지 입력 감지 (Agent_DischargeInput_Task)
+├── agent_discharge_stop.c         배출 정지 처리
+├── agent_discharge_stop_delay.c   정지 후 지연 처리 (Agent_DischargeStopDelay_Task)
+├── agent_display.c                무게/상태 LCD 표시 함수 5개
+├── agent_make_baichul_packet.c    배출 패킷 생성
+├── agent_minute_event.c/.h        1분 주기 이벤트 (Agent_MinuteEvent_Task)
+└── agent_weight_display.c         무게 LCD 표시 (Agent_WeightDisplay_Task)
+
+service/  미들웨어 (통신 프로토콜 / 큐 / 파싱 / 무게 필터)
+├── agent_input_filter.c   입력 필터링
+├── agent_weight.c         무게 계산
+├── cdma_queue.c           CDMA 송신 큐 (ZIGBEE_puts / CdmaSendQueue_puts,gets / modem_power_reset)
+├── global.c               전역 상태/큐 정의
+├── parsing.c              수신 패킷 파싱
+├── queue.c                노드 큐 시스템 (q_add_tail, q_remove_tail, q_get_count)
+├── rs485.c                RS-485 통신
+├── sms.c                  SMS 처리
+├── tcpip_send.c           서버 전송(모뎀 TCP/IP) — ★ Send_to_server() 콤마연산자 버그 수정 완료
+└── zigbee.c               Zigbee 통신
+
+driver/   하드웨어 드라이버
+├── adc.c              CS5555/ADS1251 로드셀 ADC
+├── buzzer.c           부저
+├── i2c_ee.c           EEPROM (I2C1 하드웨어)
+├── key.c              키 입력 (⚠️ 한글 주석 113곳 인코딩 손상 — 복구 불가, 동작은 정상)
+├── lcd.c / lcd70.c    LCD 드라이버 (lcd70 = 한글 폰트 출력)
+├── led.c              LED (main.c의 Silo_1/2_Led_Operation, Error_1/2_Led_Operation 흡수)
+├── sflash.c           W25Q128 SPI Flash
+├── timer.c            ★ 실제 HT1381 RTC 드라이버(Get1381/Read1381/Set1381 등) + TIM 타임베이스
+└── usart.c            USART1~4 초기화 / IRQ / 송수신
+
+bsp/      보드 정의
+└── board_gpi8510.h    핀맵/클럭/벡터 오프셋 — 신규 보드 대응 시 이 파일만 수정하면 됨
+
+src/      아직 이동하지 않은 파일 (레거시 구조 유지, 대부분 CAL/IAP 관련이라 보류 중)
+├── main.c              main.c 슬림화 진행 중 — 세션 시작 시 약 8,000줄 → 현재 약 5,080줄.
+│                        남은 것: while(1) 수퍼루프, mode_check/cal_mode/set_mode 디스패처,
+│                        zero_func/zero_func2, Silo_1_Getweight, goto_iap 등
+│                        ★ 전부 CAL(캘리브레이션)·IAP 관련이라 최후순위로 보류 중.
+├── CAL.C / CAL.H       ★ 캘리브레이션 모드 (2,400줄) — 현장 데이터 보호 최우선, 리팩토링 보류
+├── set.c / set.h       설정 모드 — set.h는 아무 곳에서도 include되지 않는 죽은 헤더(10.2절 참고)
+├── var.c / var.h       전역 변수 정의
+├── rtc.c               죽은 코드(진짜 RTC 드라이버는 driver/timer.c로 이미 이동됨) — 삭제 여부 미결정
+├── spi.c               죽은 코드(호출부 없음) — 삭제 여부 미결정
+├── hw_config.c/.h      클럭(bsp_init_rcc)/I2C핀/인터럽트(벡터 0x3000!) 초기화, 비트밴딩 매크로
+├── stm32f10x_it.c/.h   인터럽트 핸들러
+├── font.c / icon.c     한글 폰트/아이콘 데이터
+├── def.h / global.h / type.h / stypes.h   공용 매크로/타입 (아직 미분류)
+└── (그 외 driver/service로 옮긴 .c에 대응하는 .h 헤더들 및 StdPeriph 관련 파일들)
+
 lib/
 └── STM32_USB-FS-Device_Lib_V3.4.0/   (CMSIS + StdPeriph 라이브러리)
 ```
+
+- **남은 정리(급하지 않음)**: `driver/`·`service/`로 옮긴 `.c` 파일들의 짝인 `.h` 헤더는 아직 `src/`에 남아있다. Include Path에 `src`도 포함되어 있어 빌드에는 문제없지만, 언젠가 헤더도 같은 폴더로 옮기면 구조가 더 깔끔해진다.
 
 ### 4.2 아키텍처: 수퍼루프 + Agent 태스크
 `main()` → 초기화 → `while(1)` 무한루프에서 아래 태스크를 폴링 방식으로 순환 호출:
