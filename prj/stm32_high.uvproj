@@ -486,6 +486,11 @@
               <FilePath>..\app\agent_discharge_stop.c</FilePath>
             </File>
             <File>
+              <FileName>agent_display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\agent_display.c</FilePath>
+            </File>
+            <File>
               <FileName>agent_discharge_input.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\app\agent_discharge_input.c</FilePath>

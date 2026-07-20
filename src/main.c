@@ -3296,19 +3296,8 @@ void Adc_Power_Off_On(void)
 }
 
 
-void logo(void)
-{
-	#define Y_AXIS_SPACE   50
-	char str[20];
-
-//POINT_COLOR = BLACK;
-//BACK_COLOR = WHITE;
-
-	//lcd70_show_string_mode_24x24(200, 100+(Y_AXIS_SPACE*1),"MODEL:GPI-8310", 16, 0);
-	sprintf(str, "VERSION:%s", VERSION);
-	//lcd70_show_string_mode_24x24(200, 100+(Y_AXIS_SPACE*2), str, 16, 0);
-	//lcd70_show_string_mode_24x24(200, 100+(Y_AXIS_SPACE*3),"G-TECH INTERNATIONAL CO., ", 16, 0);
-}
+/* logo() moved to app/agent_display.c (main.c slimming). */
+void logo(void);
 
 void mode_check(void)//0727
 {
@@ -3849,73 +3838,11 @@ void Error_1_Led_Operation(void);
 void Error_2_Led_Operation(void);
 
 
-void  Silo_1_Weight_Display() //0908  // 0627
-{
-	
-	//lcd_initial();
- 
- if(gnlLanguage==1) // korean
- { 
+/* Silo_1_Weight_Display() moved to app/agent_display.c (main.c slimming). */
+void Silo_1_Weight_Display(void);	
 
-	if(Loadcell_Error1)
-   	 GLCD_string ("로드셀 에러");
-	
-  else//정상일때	
-  {  
-	 sprintf(str, "무 게: %5ld kg ", gxlWeight);
-	 //  sprintf(str, ": %5ld kg ", gxlWeight);	
-   	
-		GLCD_string (0,0 ,str);
-	} 
-	lcd_inverse();	
-  
-
-	//sprintf(str, "급 이: %5ld kg ", gnlDailyTotal);
-	// if(!working_flag)
-   {		 
-	   sprintf(str, "급 이: %5ld kg ", gnlFeeding1);
-  	 GLCD_string (0,2 ,str);
-	 } 
-	//sprintf(str, "오 늘: %5ld kg ", gnlDailyTotal);
-	//GLCD_string (0,6 ,str);
-
-	 lcd_normal();	
- 
-	
-	}//of if(gnlLanguage==1)
- 
-  else
- {
-  if(Loadcell_Error1)
-   	 GLCD_string ("LOAD_CELL ERROR!");
-	 else
-   {		 
-   	sprintf(str, "SILO : %5ld kg ", gxlWeight);
-  	GLCD_string (0,0 ,str);
-   }	
-
-	lcd_inverse();	
-	//sprintf(str, "FEED : %5ld kg ", gnlDailyTotal);
-	 sprintf(str, "FEED : %5ld kg ", gnlFeeding1);
-	GLCD_string (0,2 ,str);
-	 lcd_normal();	
- }
- 
- 
- 
-
-}	
-
-void  Silo_2_Weight_Display()
-{
-	lcd_initial();
-	sprintf(str, "SILO2: %5ld kg ", gxlWeight_2);
-	GLCD_string (0,4 ,str);
-	 lcd_inverse();	
-	sprintf(str, "FEED2: %5ld kg ", gnlDailyTotal2);
-	GLCD_string (0,6 ,str);
-	 lcd_normal();	
-}	
+/* Silo_2_Weight_Display() moved to app/agent_display.c (main.c slimming). */
+void Silo_2_Weight_Display(void);	
 	
 
 
@@ -4157,40 +4084,8 @@ void Silo_1_Getweight(void) //1211
 	
 
 
-void Date_Time_Display(void)
-{
-  
-	Get1381(); 
-	sprintf(str, "date:20%02x-%02X-%02X  time:%02x-%02X-%02X ", Gettimebuf[6],Gettimebuf[4],Gettimebuf[3],Gettimebuf[2],Gettimebuf[1],Gettimebuf[0]);	USART1_puts(str);
-  if(gnlLanguage==1)
-	{	
-	 GLCD_string (0,0 ,"현재날짜");
-   sprintf(str, "20%02x년%02X월%02X일", Gettimebuf[6],Gettimebuf[4],Gettimebuf[3]);	
-	 lcd_inverse();
- 	 GLCD_string (0,2 ,str);
-   lcd_normal();	 
-   GLCD_string (0,4 ,"현재시간");
-   lcd_inverse();
-	 sprintf(str, "%02x시%02X분%02X초", Gettimebuf[2],Gettimebuf[1],Gettimebuf[0]);	
-   GLCD_string (0,6 ,str);
-	 lcd_normal();
-	}
-else
-		
-	{	
-	GLCD_string (0,0 ,"    DATE        ");
-  sprintf(str, "  20%02x-%02X-%02X    ", Gettimebuf[6],Gettimebuf[4],Gettimebuf[3]);	
-	lcd_inverse();
-	GLCD_string (0,2 ,str);
-  lcd_normal();	 
-  GLCD_string (0,4 ,"    TIME        ");
-  lcd_inverse();
-	sprintf(str, "  %02x-%02X-%02X      ", Gettimebuf[2],Gettimebuf[1],Gettimebuf[0]);	
-  GLCD_string (0,6 ,str);
-	 lcd_normal();
-	}
-		Delay_ms(1000);
-}
+/* Date_Time_Display() moved to app/agent_display.c (main.c slimming). */
+void Date_Time_Display(void);
 
 
 
@@ -4265,73 +4160,8 @@ void Show_ToalOutput(void)//누적배출량
 
 }
 
-void Initial_Display(void)
-{
-	long  sum;
- /**************  Initial display *****************************/
- if(gnlSilo1Selection==1)// silo  NUMBER ==1
- {
-	 SendtoPc();
-   Silo_1_Weight_Display(); // silo 1  current weight, feed comsumption weight displaying 
-	 SendtoPc();
-	 lcd_inverse();
-	 if(gnlLanguage==1) // korean 
-	 sprintf(str, "오 늘: %5ld kg ", gnlDailyTotal); 
-	 else
-	 sprintf(str, "TODAY: %5ld kg ", gnlDailyTotal);
-	 
-	 GLCD_string (0,6 ,str);
-	 lcd_normal();
-
- }
-else // silo number is 2  20171019
- {
-	if(gnlLanguage==1)
-  {		
-	 lcd_inverse(); 
-   sprintf(str, "무게:%5ld-%5ld", gxlWeight,gxlWeight_2);
-	 GLCD_string (0,0 ,str);
-	 lcd_normal();
-    /*	
-		sprintf(str, "급이량1:%5ld kg", gnlDailyTotal);
-	 GLCD_string (0,2 ,str);
-	 sprintf(str, "급이량2:%5ld kg", gnlDailyTotal2);
-	 GLCD_string (0,4 ,str);
-		*/
-   //ver 2.8
-		sprintf(str, "급이량1:%5ld kg", gnlFeeding1);
-	 GLCD_string (0,2 ,str);
-	 sprintf(str, "급이량2:%5ld kg", gnlFeeding2);
-	 GLCD_string (0,4 ,str);
-
-
-
-		lcd_inverse();
-	 sum=gnlDailyTotal+gnlDailyTotal2;
-	 sprintf(str, "오 늘: %5ld kg",sum);
- //sprintf(str, "오 늘: %5ld kg ", gnlDailyTotal); 
-	 GLCD_string (0,6 ,str);
-	 lcd_normal();
-	}
-	else
-   {		
-	 lcd_inverse(); 
-   sprintf(str, "SILO:%5ld-%5ld", gxlWeight,gxlWeight_2);
-	 GLCD_string (0,0 ,str);
-	 lcd_normal();
-	 sprintf(str, "FEED1:%5ld kg", gnlDailyTotal);
-	 GLCD_string (0,2 ,str);
-	 sprintf(str, "FEED2:%5ld kg", gnlDailyTotal2);
-	 GLCD_string (0,4 ,str);
-	 lcd_inverse();
-	 sum=gnlDailyTotal+gnlDailyTotal2;
-	 sprintf(str, "TODAY: %5ld kg",sum);
- //sprintf(str, "오 늘: %5ld kg ", gnlDailyTotal); 
-	 GLCD_string (0,6 ,str);
-	 lcd_normal();
-	}
- }
-}
+/* Initial_Display() moved to app/agent_display.c (main.c slimming). */
+void Initial_Display(void);
  /**************  Initial display *****************************/
 
 void set_ip()
