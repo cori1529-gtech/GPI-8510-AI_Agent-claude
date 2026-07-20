@@ -591,6 +591,11 @@
               <FilePath>..\src\main.c</FilePath>
             </File>
             <File>
+              <FileName>cdma_queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\service\cdma_queue.c</FilePath>
+            </File>
+            <File>
               <FileName>parsing.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\service\parsing.c</FilePath>

@@ -3597,10 +3597,8 @@ void assert_failed(uint8_t* file, uint32_t line)
 #endif
 
 
-void ZIGBEE_puts(char *str)
-{
-	UART4_puts(str);
-}
+/* ZIGBEE_puts() moved to service/cdma_queue.c (main.c slimming). */
+void ZIGBEE_puts(char *str);
 
 
 //2000 ~ 2099 년까지
@@ -3665,38 +3663,11 @@ int RTC_time_display()
 }
 
 
-int CdmaSendQueue_puts(char *txt)
-{
-	int	ret_val = -1;
-
-	CdmaSendQueue_qhead = ++CdmaSendQueue_qhead % MAX_CDMA_QUEUE_BUFFER;
-	strncpy(CdmaSendQueue[CdmaSendQueue_qhead], txt, strlen(txt)+1);
-
-USART1_puts(CdmaSendQueue[CdmaSendQueue_qhead]);
-
-	return ret_val;
-}
-
-int CdmaSendQueue_gets()
-{
-	if (CdmaSendQueue_qhead == CdmaSendQueue_qtail)	return -1;	//queue empty
-	
-	CdmaSendQueue_qtail = ++CdmaSendQueue_qtail % MAX_CDMA_QUEUE_BUFFER;
-
-//USART1_puts(CdmaSendQueue_queue[CdmaSendQueue_qtail]);
-
-	return CdmaSendQueue_qtail;
-}
-
-//LTE MODEM reset and power on/off
-void modem_power_reset(void)
-{
-	cdma_send_cmd("AT$LGTRESET", 11);	//2014.12.23   날이바뀌면 modem reset 실행 
-	Delay_ms(1000);
-	Cdma_Power_Off();
-	Delay_ms(1000);
-	Cdma_Power_On();
-}
+/* CdmaSendQueue_puts()/CdmaSendQueue_gets()/modem_power_reset() moved to
+   service/cdma_queue.c (main.c slimming). */
+int CdmaSendQueue_puts(char *txt);
+int CdmaSendQueue_gets(void);
+void modem_power_reset(void);
 
 int get_weight()
 {
