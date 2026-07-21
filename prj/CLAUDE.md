@@ -201,7 +201,14 @@ src/      아직 이동하지 않은 파일 (레거시 구조 유지, 대부분 
 ├── CAL.C / CAL.H       ★ 캘리브레이션 모드 (2,400줄) — 현장 데이터 보호 최우선, 리팩토링 보류
 ├── set.c / set.h       설정 모드 — set.h는 아무 곳에서도 include되지 않는 죽은 헤더(10.2절 참고)
 ├── var.c / var.h       전역 변수 정의
-├── rtc.c               죽은 코드(진짜 RTC 드라이버는 driver/timer.c로 이미 이동됨) — 삭제 여부 미결정
+├── rtc.c               ★★ 살아있음, 절대 삭제 금지! STM32 "내부" RTC 담당.
+│                        RTC_IRQHandler()가 1초마다 gnlTick++/gbSecEvent/gbMinEvent/
+│                        gbHourEvent/gbDayEvent를 세팅 → 모든 주기 전송의 심장박동.
+│                        RTC_Configuration()은 main.c 663줄 초기화에서 호출됨.
+│                        RTC_date_to_sec()는 서버 시각동기(DATE= 명령)에 사용.
+│                        (driver/timer.c의 HT1381은 "외부" RTC 칩으로 서로 다른 물건.
+│                         과거 "rtc.c 죽음"이라 적었던 것은 오기록이었음 — 2026-07 정정.)
+│                        cf. src/bsp_rtc.c 는 .uvproj에 없어 빌드 제외된 대체본(비활성).
 ├── spi.c               죽은 코드(호출부 없음) — 삭제 여부 미결정
 ├── hw_config.c/.h      클럭(bsp_init_rcc)/I2C핀/인터럽트(벡터 0x3000!) 초기화, 비트밴딩 매크로
 ├── stm32f10x_it.c/.h   인터럽트 핸들러

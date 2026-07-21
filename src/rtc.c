@@ -291,4 +291,69 @@ MONITORING_puts(str);
 	return ret_val;
 }
 
+/* --- Moved from main.c (2026-07 slimming): STM32 internal-RTC time helpers. --- */
+extern char str[100];
+
+//2000 ~ 2099 년까지
+#define	SECONDS_OF_HOUR	3600
+int RTC_sec_to_time_conversion()
+{	
+	int ret_val = 0;
+    u32 rtc_days;
+    u32 THH, TMM, TSS;
+	u32 TimeVar;
+	// the beginning of each month
+	u32 DaysToMonth[13] = { 0,31,59,90,120,151,181,212,243,273,304,334,365 };	
+		  
+	if(RTC_TimeUpdated)
+	{
+		ret_val = -1;
+		RTC_TimeUpdated = 0;
+		TimeVar = RTC_GetCounter();
+
+/*		
+RTC_BinaryToDate(RTC_GetCounter(),&system_datetime);
+
+// 구조체의 내용으로 초를 계산하는 경우
+
+Sec = RTC_DateToBinary(&system_datetime);		
+*/
+		
+		rtc_days = TimeVar / (SECONDS_OF_HOUR*24);
+		
+		rtc_year = rtc_days / 365;
+		rtc_month = (rtc_days - (rtc_year*365)) / 30;
+		rtc_date = (rtc_days - (rtc_year*365 + rtc_year/4 + 1)) - DaysToMonth[rtc_month];
+		
+		
+		TimeVar = TimeVar % (24*SECONDS_OF_HOUR);
+		rtc_hour = TimeVar / SECONDS_OF_HOUR;  /* Compute  hours */
+		rtc_min = (TimeVar % SECONDS_OF_HOUR) / 60;  /* Compute minutes */
+		rtc_sec = TimeVar % 60;  /* Compute seconds */
+		
+/////////STST		
+//		rtc_date = rtc_hour/2;
+		
+		
+		
+//		sprintf(str, "Date:%04lu-%02lu-%02lu, Time:%02d:%02d:%02d, %lu", rtc_year, rtc_month, rtc_date, rtc_hour, rtc_min, rtc_sec, rtc_days);
+///		sprintf(str, "Date:20%02lu-%02lu-%02lu, Time:%02d:%02d:%02d, %lu", rtc_year, rtc_month, rtc_date, rtc_hour, rtc_min, rtc_sec, rtc_days);
+///		USART1_puts(str);
+//		sprintf(sT0, "tel=%s,rssi= %d,Date=%04d-%02d-%02d Time=%02d:%02d:%02d",  jangbi.cdma.telno, jangbi.cdma.rssi,
+//		jangbi.cdma.tm.year, jangbi.cdma.tm.month, jangbi.cdma.tm.date, jangbi.cdma.tm.hour, jangbi.cdma.tm.min, jangbi.cdma.tm.sec);
+//lcd70_show_string_mode(420, 30, (const unsigned char *)str, 20, 0);
+///lcd70_show_string_mode(170, 460, (const unsigned char *)str, 20, 0);
+	}
+
+	return ret_val;
+}
+
+//2000 ~ 2099 년까지
+int RTC_time_display()
+{	
+	sprintf(str, "Date:20%02lu-%02lu-%02lu, Time:%02d:%02d:%02d.", rtc_year, rtc_month, rtc_date, rtc_hour, rtc_min, rtc_sec);
+//	lcd70_show_string_mode(170, 460, (const unsigned char *)str, 20, 0);
+}
+
+
 /* end of file */

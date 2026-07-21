@@ -2706,88 +2706,6 @@ void sms_process(char *msg)     // 0829
 USART1_puts(msg);	
 }	
 
-#ifdef __gpi8310
-
-void zero_func(void)
-{
-	char sT0[256];
-	
-	sprintf(sT0, "v_zero1=%6lu  comp=%6lu",(long)v_zero,(long)gplCompensationWeight);
-//	lcd70_show_string_mode(200, 30, (const unsigned char *)sT0, 20, 0);
-
-	/*
-	while(!Weight_flag)
-	{
-		raw_data=Get_adc_from_module_20170626(); 	// 
-	};
-*/
-	
-	get_weight_wait();
-	get_weight_wait();
-	get_weight_wait();
-	if( get_weight_wait()) {
-	/*		
-		Weight_flag = 0;
-		rotation = 1;
-			
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-		raw_data=Get_adc_from_module_20170626(); 	// 
-
-		sprintf(sT0, "v_zero2=%6lu  comp=%6lu",(long)v_zero,(long)gplCompensationWeight);
-		lcd70_show_string_mode(200, 30, (const unsigned char *)sT0, 20, 0);
-
-		v_zero=raw_data;
-
-		v_adc_org  = (long)((float)raw_data * gnfFactor);  // calibration시 영점값 기억 
-
-		gplCompensationWeight=0;
-	*/
-		sprintf(sT0, "v_zero2=%6lu  comp=%6lu",(long)v_zero,(long)gplCompensationWeight);
-//		lcd70_show_string_mode(200, 30, (const unsigned char *)sT0, 20, 0);
-
-		v_zero = gxlRawAdc;
-		v_adc_org  = gxlFactoredAdc;	// factor 곱한 영점값 기억 
-		gplCompensationWeight = 0;
-
-		v_zero = EE_Write_val(ADR_v_zero, v_zero, 4);
-		v_adc_org = EE_Write_val(ADR_v_adc_org, v_adc_org, 4);
-		gplCompensationWeight = EE_Write_val(ADR_gplCompensationWeight, gplCompensationWeight, 4);
-
-	/*
-		v_zero = EE_Write_val(ADR_v_zero, v_zero, 4);
-		v_zero = EE_Read_val(ADR_v_zero, 4);
-		Delay_ms(300);
-		//					gplCompensationWeight = EE_Write_val(ADR_gplCompensationWeight, gplCompensationWeight, 4);
-		gplCompensationWeight = EE_Write_val(ADR_gplCompensationWeight, 0, 4);
-
-		gplCompensationWeight = EE_Read_val(ADR_gplCompensationWeight, 4);
-	**/	
-		
-		sprintf(sT0, "v_zero3=%6lu  comp=%6lu",(long)v_zero,(long)gplCompensationWeight);
-//		lcd70_show_string_mode(200, 30, (const unsigned char *)sT0, 20, 0);
-	}
-}
-
-#endif
-
 void zero_func(void) // 0829
 {
 	char sT0[100];
@@ -3344,14 +3262,17 @@ void mode_check(void)//0727
 				Data_Clear();
 				break;
 		case  LEFT:
-       Show_ToalOutput();
+         Show_ToalOutput();
+		        set_ip();
+			      set_port();
+		
 		     Initial_Display();			
 
 			break;
 		
    case  DOUBLE:
-		  	 set_ip();
-			   set_port();
+		  	    set_ip();
+			      set_port();
 		
 	
     break;
@@ -3377,95 +3298,6 @@ void mode_check(void)//0727
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
-#ifdef _____unused___________
-
-void Get_Weight(void)
-{
-	
-/////STST20160608
-/**
-DEBUG_puts("Get_Weight(void) -- TEST MODE");
-Weight_flag = 1;
-Real_Weight = 5300;
-gxlGrossWeight = Real_Weight;
-gxlWeight = gxlGrossWeight;
-
-return;	
-**/	
-
-	
-	//raw_data=Get_adc_from_module();  // 모듈로부터 a/d 값을 읽어온다.
-	
-	//if(Weight_flag)// 모듈로 부터 무게를 정상적으로 받았으면  현재무게를 표시한다. 
-	while( !Weight_flag)
-	{
-		raw_data = Get_adc_from_module_20170626();  // 모듈로부터 a/d 값을 읽어온다.
-		v_adc1_buf = (long)(gnfFactor * raw_data);
-		
-		//0116		   v_adc1_buf=1000;	 /////
-		//0116		   v_adc_org=3000;	 ///// 0115
-		
-		diff1 = v_adc1_buf - v_adc_org;
-		if(diff1<0)
-		{
-			diff1 = diff1*-1;
-			sign_flag = 1;
-		}
-		else sign_flag=0;
-		
-		diff2 = v_adc1_buf - prev_adc1;	// for stable 
-		// gxlWeight = ((diff1 + 10) / v_ei_multiply_factor) * v_division;
-		gxlWeight = ((diff1) / v_ei_multiply_factor) * v_division;
-		
-		if(gnlDisplay)
-		{
-			sprintf(str, "diff1_1=%6lu ",(long)diff1);
-	//		lcd70_show_string_mode(100, 300,str, 16, 0);
-			
-			sprintf(str, "v_adc_org_1=%6lu ",(long)v_adc_org);
-	//		lcd70_show_string_mode(100, 330,str, 16, 0);
-
-			sprintf(str, "gxlWeight_1=%6lu ",(long)gxlWeight);
-	//		lcd70_show_string_mode(100, 360,str, 16, 0);
-		}
-		
-		// 음수이면 
-	//	if(gxlGrossWeight==0)
-	//		sign_flag=0;
-		if(sign_flag) gxlGrossWeight = gplCompensationWeight - gxlWeight;
-		else 		  gxlGrossWeight = gplCompensationWeight + gxlWeight;
-		
-	//	gxlGrossWeight =  gxlWeight;
-		
-		
-		if(Real_Weight_Factor != 10000)// 무게보정 factor가 가동되어을때 
-		{
-			Real_Weight = (float)(((Real_Weight_Factor)/10000.0) * gxlGrossWeight);
-			gxlGrossWeight = Real_Weight;
-			//lcd70_write_weight(100,220,Real_Weight);// total weight displayin
-		}
-		
-		if(gxlGrossWeight < (v_capacity+2000)) // 현재무게가 v_capacity 보다 작을때 현재무게를 표시한다.
-		{
-			if(0 <= gxlGrossWeight) //2016.7.5
-			{
-	//			lcd70_write_weight(100,150,gxlGrossWeight);//  Big font total weight displayin
-			}
-		}
-		
-		
-		/* 
-		if(Real_Weight_Factor!=10000)// 무게보정 factor가 가동되어을때 
-		{
-			(float)Real_Weight=(float)(((Real_Weight_Factor)/10000)*gxlGrossWeight);
-			lcd70_write_weight(100,220,Real_Weight);// total weight displayin
-		}
-		*/
-		
-		//  Weight_flag=0;
-	} //while( !Weight_flag) //  무게를 읽어오면 
-}
-#endif	//#ifdef _____unused___________
 
 
 
@@ -3590,66 +3422,9 @@ void assert_failed(uint8_t* file, uint32_t line)
 void ZIGBEE_puts(char *str);
 
 
-//2000 ~ 2099 년까지
-#define	SECONDS_OF_HOUR	3600
-int RTC_sec_to_time_conversion()
-{	
-	int ret_val = 0;
-    u32 rtc_days;
-    u32 THH, TMM, TSS;
-	u32 TimeVar;
-	// the beginning of each month
-	u32 DaysToMonth[13] = { 0,31,59,90,120,151,181,212,243,273,304,334,365 };	
-		  
-	if(RTC_TimeUpdated)
-	{
-		ret_val = -1;
-		RTC_TimeUpdated = 0;
-		TimeVar = RTC_GetCounter();
-
-/*		
-RTC_BinaryToDate(RTC_GetCounter(),&system_datetime);
-
-// 구조체의 내용으로 초를 계산하는 경우
-
-Sec = RTC_DateToBinary(&system_datetime);		
-*/
-		
-		rtc_days = TimeVar / (SECONDS_OF_HOUR*24);
-		
-		rtc_year = rtc_days / 365;
-		rtc_month = (rtc_days - (rtc_year*365)) / 30;
-		rtc_date = (rtc_days - (rtc_year*365 + rtc_year/4 + 1)) - DaysToMonth[rtc_month];
-		
-		
-		TimeVar = TimeVar % (24*SECONDS_OF_HOUR);
-		rtc_hour = TimeVar / SECONDS_OF_HOUR;  /* Compute  hours */
-		rtc_min = (TimeVar % SECONDS_OF_HOUR) / 60;  /* Compute minutes */
-		rtc_sec = TimeVar % 60;  /* Compute seconds */
-		
-/////////STST		
-//		rtc_date = rtc_hour/2;
-		
-		
-		
-//		sprintf(str, "Date:%04lu-%02lu-%02lu, Time:%02d:%02d:%02d, %lu", rtc_year, rtc_month, rtc_date, rtc_hour, rtc_min, rtc_sec, rtc_days);
-///		sprintf(str, "Date:20%02lu-%02lu-%02lu, Time:%02d:%02d:%02d, %lu", rtc_year, rtc_month, rtc_date, rtc_hour, rtc_min, rtc_sec, rtc_days);
-///		USART1_puts(str);
-//		sprintf(sT0, "tel=%s,rssi= %d,Date=%04d-%02d-%02d Time=%02d:%02d:%02d",  jangbi.cdma.telno, jangbi.cdma.rssi,
-//		jangbi.cdma.tm.year, jangbi.cdma.tm.month, jangbi.cdma.tm.date, jangbi.cdma.tm.hour, jangbi.cdma.tm.min, jangbi.cdma.tm.sec);
-//lcd70_show_string_mode(420, 30, (const unsigned char *)str, 20, 0);
-///lcd70_show_string_mode(170, 460, (const unsigned char *)str, 20, 0);
-	}
-
-	return ret_val;
-}
-
-//2000 ~ 2099 년까지
-int RTC_time_display()
-{	
-	sprintf(str, "Date:20%02lu-%02lu-%02lu, Time:%02d:%02d:%02d.", rtc_year, rtc_month, rtc_date, rtc_hour, rtc_min, rtc_sec);
-//	lcd70_show_string_mode(170, 460, (const unsigned char *)str, 20, 0);
-}
+/* RTC_sec_to_time_conversion() and RTC_time_display() moved to src/rtc.c
+   (2026-07 main.c slimming). These read the STM32 internal RTC.
+   Prototypes are now declared in rtc.h. */
 
 
 /* CdmaSendQueue_puts()/CdmaSendQueue_gets()/modem_power_reset() moved to
