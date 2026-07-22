@@ -34,7 +34,7 @@ I (..\src\i2c_ee.h)(0x62CD0EB0)
 I (..\src\stm32f10x_lib.h)(0x5971C78A)
 I (..\src\var.h)(0x5E280320)
 I (..\src\usart.h)(0x5A2740D0)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 F (..\app\agent_date_change.c)(0x6A573CB7)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\agent_date_change.o --omf_browse ..\obj\agent_date_change.crf --depend ..\obj\agent_date_change.d)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include\stm32f10x.h)(0x54C1E0D4)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include\core_cm3.h)(0x54C1E0D4)
@@ -106,7 +106,7 @@ I (..\src\timer.h)(0x606681E0)
 I (..\src\usart.h)(0x5A2740D0)
 I (..\src\buzzer.h)(0x6A407FB2)
 I (..\src\lcd.h)(0x6A5726F6)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\led.h)(0x59798C38)
 F (..\app\agent_discharge_stop.c)(0x6A57439C)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\agent_discharge_stop.o --omf_browse ..\obj\agent_discharge_stop.crf --depend ..\obj\agent_discharge_stop.d)
 I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
@@ -178,7 +178,7 @@ I (..\src\hw_config.h)(0x59718BE4)
 I (..\src\timer.h)(0x606681E0)
 I (..\src\usart.h)(0x5A2740D0)
 I (..\src\lcd.h)(0x6A5726F6)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 F (..\app\agent_discharge_input.c)(0x6A5742D3)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\agent_discharge_input.o --omf_browse ..\obj\agent_discharge_input.crf --depend ..\obj\agent_discharge_input.d)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include\stm32f10x.h)(0x54C1E0D4)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include\core_cm3.h)(0x54C1E0D4)
@@ -347,7 +347,7 @@ I (..\src\i2c_ee.h)(0x62CD0EB0)
 I (..\src\stm32f10x_lib.h)(0x5971C78A)
 I (..\src\hw_config.h)(0x59718BE4)
 I (..\src\lcd.h)(0x6A5726F6)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\buzzer.h)(0x6A407FB2)
 F (..\app\agent_discharge_stop_delay.c)(0x6A573AAB)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\agent_discharge_stop_delay.o --omf_browse ..\obj\agent_discharge_stop_delay.crf --depend ..\obj\agent_discharge_stop_delay.d)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include\stm32f10x.h)(0x54C1E0D4)
@@ -414,8 +414,8 @@ I (..\src\hw_config.h)(0x59718BE4)
 I (..\src\timer.h)(0x606681E0)
 I (..\src\usart.h)(0x5A2740D0)
 F (..\app\agent_minute_event.h)(0x6A57388F)()
-F (..\bsp\board_gpi8510.h)(0x6A5C458D)()
-F (..\driver\buzzer.c)(0x6A5B3C00)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\buzzer.o --omf_browse ..\obj\buzzer.crf --depend ..\obj\buzzer.d)
+F (..\bsp\board_gpi8510.h)(0x6A5F3E0B)()
+F (..\driver\buzzer.c)(0x6A5F3E0B)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\buzzer.o --omf_browse ..\obj\buzzer.crf --depend ..\obj\buzzer.d)
 I (..\src\hw_config.h)(0x59718BE4)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include\stm32f10x.h)(0x54C1E0D4)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include\core_cm3.h)(0x54C1E0D4)
@@ -442,7 +442,7 @@ I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\in
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x54C1E0D6)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x54C1E0D6)
 I (..\src\buzzer.h)(0x6A407FB2)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 F (..\src\CAL.C)(0x6271EF88)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\cal.o --omf_browse ..\obj\cal.crf --depend ..\obj\cal.d)
 I (..\src\cal.h)(0x603EF476)
 I (..\src\key.h)(0x603F1D0E)
@@ -477,7 +477,7 @@ I (..\src\usart.h)(0x5A2740D0)
 I (..\src\rs485.h)(0x54C1E0D8)
 I (..\src\lcd.h)(0x6A5726F6)
 I (..\src\stypes.h)(0x6A572CCB)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\led.h)(0x59798C38)
 I (..\src\spi.h)(0x54C1E0D8)
 I (..\src\adc.h)(0x6243F16E)
@@ -568,7 +568,7 @@ I (..\src\CAL.h)(0x603EF476)
 I (..\src\var.h)(0x5E280320)
 I (..\src\type.h)(0x597AA48A)
 I (..\src\stypes.h)(0x6A572CCB)
-F (..\driver\key.c)(0x6A5B3C34)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
+F (..\driver\key.c)(0x6A6000C0)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
 I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include\stm32f10x.h)(0x54C1E0D4)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include\core_cm3.h)(0x54C1E0D4)
@@ -597,7 +597,7 @@ I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\in
 I (..\src\key.h)(0x603F1D0E)
 I (..\src\hw_config.h)(0x59718BE4)
 I (..\src\buzzer.h)(0x6A407FB2)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 F (..\driver\lcd70.c)(0x6A5B425C)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\lcd70.o --omf_browse ..\obj\lcd70.crf --depend ..\obj\lcd70.d)
 I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
 I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
@@ -629,7 +629,7 @@ I (..\src\hw_config.h)(0x59718BE4)
 I (..\src\def.h)(0x6A541BA0)
 I (..\src\lcd.h)(0x6A5726F6)
 I (..\src\stypes.h)(0x6A572CCB)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\lcd70.h)(0x59716F2A)
 I (..\src\usart.h)(0x5A2740D0)
 I (..\src\var.h)(0x5E280320)
@@ -661,13 +661,13 @@ I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\in
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x54C1E0D6)
 I (..\src\LCD.h)(0x6A5726F6)
 I (..\src\stypes.h)(0x6A572CCB)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\stm32f10x_lib.h)(0x5971C78A)
 I (..\src\stm32f10x_it.h)(0x54C1E0D8)
 I (..\src\english.h)(0x5971B264)
 I (..\src\graphic.h)(0x54E1606E)
 I (..\src\hw_config.h)(0x59718BE4)
-F (..\driver\led.c)(0x6A5B39EE)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
+F (..\driver\led.c)(0x6A5F3B94)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include\stm32f10x.h)(0x54C1E0D4)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include\core_cm3.h)(0x54C1E0D4)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
@@ -694,6 +694,7 @@ I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\in
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x54C1E0D6)
 I (..\src\led.h)(0x59798C38)
 I (..\src\hw_config.h)(0x59718BE4)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\timer.h)(0x606681E0)
 F (..\src\main.c)(0x6A5F2DE6)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
@@ -723,7 +724,7 @@ I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\in
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x54C1E0D6)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x54C1E0D6)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x54C1E0D6)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\stm32f10x_lib.h)(0x5971C78A)
 I (..\src\stm32f10x_it.h)(0x54C1E0D8)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h)(0x54C1E0D6)
@@ -918,7 +919,7 @@ I (..\src\stm32f10x_lib.h)(0x5971C78A)
 I (..\src\key.h)(0x603F1D0E)
 I (..\src\buzzer.h)(0x6A407FB2)
 I (..\src\lcd.h)(0x6A5726F6)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\lcd70.h)(0x59716F2A)
 I (..\src\rs485.h)(0x54C1E0D8)
 I (..\src\usart.h)(0x5A2740D0)
@@ -1055,7 +1056,7 @@ I (..\src\timer.h)(0x606681E0)
 I (..\src\usart.h)(0x5A2740D0)
 I (..\src\lcd.h)(0x6A5726F6)
 I (..\src\stypes.h)(0x6A572CCB)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\key.h)(0x603F1D0E)
 I (..\src\spi.h)(0x54C1E0D8)
 I (..\src\rs485.h)(0x54C1E0D8)
@@ -1139,7 +1140,7 @@ I (..\src\stypes.h)(0x6A572CCB)
 I (..\src\global.h)(0x6895413A)
 I (..\src\buzzer.h)(0x6A407FB2)
 I (..\src\lcd.h)(0x6A5726F6)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\src\var.h)(0x5E280320)
 I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7B744)
@@ -1153,7 +1154,7 @@ I (..\src\def.h)(0x6A541BA0)
 I (..\src\type.h)(0x597AA48A)
 I (..\src\stypes.h)(0x6A572CCB)
 I (..\src\lcd.h)(0x6A5726F6)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include\stm32f10x.h)(0x54C1E0D4)
 I (..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include\core_cm3.h)(0x54C1E0D4)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
@@ -1295,7 +1296,7 @@ I (..\src\stm32f10x_it.h)(0x54C1E0D8)
 I (..\src\type.h)(0x597AA48A)
 I (..\src\stypes.h)(0x6A572CCB)
 I (..\src\SFlash.h)(0x597ABF4E)
-I (..\bsp\board_gpi8510.h)(0x6A5C458D)
+I (..\bsp\board_gpi8510.h)(0x6A5F3E0B)
 F (..\service\agent_input_filter.c)(0x6A5C43E2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\agent_input_filter.o --omf_browse ..\obj\agent_input_filter.crf --depend ..\obj\agent_input_filter.d)
 I (..\src\agent_input_filter.h)(0x6A4086FC)
 F (..\service\agent_weight.c)(0x6A5C43E2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O2 --apcs=interwork -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Device\ST\STM32F10x\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\CMSIS\Include -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32_USB-FS-Device_Driver\inc -I..\lib\STM32_USB-FS-Device_Lib_V3.4.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\src -I..\bsp-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o ..\obj\agent_weight.o --omf_browse ..\obj\agent_weight.crf --depend ..\obj\agent_weight.d)
