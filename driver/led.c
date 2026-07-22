@@ -2,6 +2,7 @@
 
 #include  <stm32f10x.h>
 #include "led.h"
+#include "board_gpi8510.h"
 #include "timer.h"      /* Led_Mili_Counter, Led_Mili_Counter_2,
                            Error_Led_Mili_Counter, Error_Led_Mili_Counter_2 */
 
@@ -167,22 +168,22 @@ void bsp_led_bottom_toggle(BSP_LED_BOTTOM_Def led)
 
  void Silo1_led_On(void)
   {
-   GPIO_ResetBits(GPIOF, GPIO_Pin_7);
+   GPIO_ResetBits(SILO1_LED_PORT, SILO1_LED_PIN);
   }
 
  void Silo2_led_On(void)
    {
-   GPIO_ResetBits(GPIOF, GPIO_Pin_9);
+   GPIO_ResetBits(SILO2_LED_PORT, SILO2_LED_PIN);
   }
 
  void Silo1_Error_led_On(void)
    {
-   GPIO_ResetBits(GPIOF, GPIO_Pin_8);
+   GPIO_ResetBits(SILO1_ERR_LED_PORT, SILO1_ERR_LED_PIN);
   }
 
  void Silo2_Error_led_On(void)
    {
-   GPIO_ResetBits(GPIOF, GPIO_Pin_10);
+   GPIO_ResetBits(SILO2_ERR_LED_PORT, SILO2_ERR_LED_PIN);
   }
 
   void All_led_On(void)
@@ -204,23 +205,23 @@ void bsp_led_bottom_toggle(BSP_LED_BOTTOM_Def led)
 
  void Silo1_led_Off(void)
   {
-   GPIO_SetBits(GPIOF, GPIO_Pin_7);
+   GPIO_SetBits(SILO1_LED_PORT, SILO1_LED_PIN);
   }
 
  void Silo2_led_Off(void)
   {
-   GPIO_SetBits(GPIOF, GPIO_Pin_9);
+   GPIO_SetBits(SILO2_LED_PORT, SILO2_LED_PIN);
   }
 
  void Silo1_Error_led_Off(void)
   {
-   GPIO_SetBits(GPIOF, GPIO_Pin_8);
+   GPIO_SetBits(SILO1_ERR_LED_PORT, SILO1_ERR_LED_PIN);
   }
 
  void Silo2_Error_led_Off(void)
 
   {
-   GPIO_SetBits(GPIOF, GPIO_Pin_10);
+   GPIO_SetBits(SILO2_ERR_LED_PORT, SILO2_ERR_LED_PIN);
   }
 
 

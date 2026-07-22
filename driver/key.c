@@ -148,10 +148,10 @@ GPIO_Init(LCD_RESET_PORT, &GPIO_InitStructure);
 
 // STATUS LED  silo ����,  siol���� 
 
-GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 |GPIO_Pin_8 |GPIO_Pin_9 |GPIO_Pin_10 ;//��   
+GPIO_InitStructure.GPIO_Pin = SILO1_LED_PIN |SILO1_ERR_LED_PIN |SILO2_LED_PIN |SILO2_ERR_LED_PIN ;//��   
 GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-GPIO_Init(GPIOF, &GPIO_InitStructure);
+GPIO_Init(SILO1_LED_PORT, &GPIO_InitStructure);
 // STATUS LED
 
 // KEY INPUT
@@ -170,10 +170,10 @@ GPIO_Init(BUZZER_PORT, &GPIO_InitStructure);
 
  
 // JUNCTION POWER ON/OFF  ���  
-GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 ;   
+GPIO_InitStructure.GPIO_Pin = RELAY5_PIN ;   
 GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-GPIO_Init(GPIOD, &GPIO_InitStructure);
+GPIO_Init(RELAY5_PORT, &GPIO_InitStructure);
 // JUNCTION POWER ON/OFF  ��� 
 
 // CDMA POWER ON/OFF  ���  
@@ -185,10 +185,10 @@ GPIO_Init(MODEM_PWR_PORT, &GPIO_InitStructure);
 
 
 // BAT POWER ON/OFF  ���  
-GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 ;   
+GPIO_InitStructure.GPIO_Pin = BATTERY_PWR_PIN ;   
 GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-GPIO_Init(GPIOD, &GPIO_InitStructure);
+GPIO_Init(BATTERY_PWR_PORT, &GPIO_InitStructure);
 // BAT POWER ON/OFF  ��� 
 
 
@@ -353,10 +353,10 @@ void Rtc_Write(void)
 	EXTI_InitTypeDef EXTI_InitStructure;
 	GPIO_InitTypeDef GPIO_InitStructure;
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;   
+	GPIO_InitStructure.GPIO_Pin = RTC_IO_PIN;   
  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
- GPIO_Init(GPIOB, &GPIO_InitStructure);
+ GPIO_Init(RTC_IO_PORT, &GPIO_InitStructure);
 }
 
 void Rtc_Read(void)
@@ -364,10 +364,10 @@ void Rtc_Read(void)
 	EXTI_InitTypeDef EXTI_InitStructure;
 	GPIO_InitTypeDef GPIO_InitStructure;
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;   
+	GPIO_InitStructure.GPIO_Pin = RTC_IO_PIN;   
  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
- GPIO_Init(GPIOB, &GPIO_InitStructure);
+ GPIO_Init(RTC_IO_PORT, &GPIO_InitStructure);
 }
 
 

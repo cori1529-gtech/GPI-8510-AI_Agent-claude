@@ -28,35 +28,35 @@ void Relay_5_Off(void);
 
 void  First_Relay_On(void)
 {
-	GPIO_SetBits(GPIOD, GPIO_Pin_11);
+	GPIO_SetBits(OUT1_PORT, OUT1_PIN);
 }
 void  Second_Relay_On(void)
 	{
-	GPIO_SetBits(GPIOD, GPIO_Pin_12);
+	GPIO_SetBits(OUT2_PORT, OUT2_PIN);
 }
 void  Third_Relay_On(void)
 	{
-	GPIO_SetBits(GPIOD, GPIO_Pin_13);
+	GPIO_SetBits(OUT3_PORT, OUT3_PIN);
 }
 void  Fourth_Relay_On(void)
 	{
-	GPIO_SetBits(GPIOB, GPIO_Pin_4);
+	GPIO_SetBits(OUT4_PORT, OUT4_PIN);
 }
 void  First_Relay_Off(void)
 	{
-	GPIO_ResetBits(GPIOD, GPIO_Pin_11);
+	GPIO_ResetBits(OUT1_PORT, OUT1_PIN);
   }
 void  Second_Relay_Off(void)
 {
-	GPIO_ResetBits(GPIOD, GPIO_Pin_12);
+	GPIO_ResetBits(OUT2_PORT, OUT2_PIN);
   }
 	void  Third_Relay_Off(void)
 {
-	GPIO_ResetBits(GPIOD, GPIO_Pin_13);
+	GPIO_ResetBits(OUT3_PORT, OUT3_PIN);
   }
 	void  Fourth_Relay_Off(void)
 {
-	GPIO_ResetBits(GPIOB, GPIO_Pin_4);
+	GPIO_ResetBits(OUT4_PORT, OUT4_PIN);
   }
 
 	void  All_Relay_Off(void)
@@ -155,19 +155,19 @@ void Output_Relay_On(void)
 
 void  Battery_Power_On(void) //  battery power on
 {
-	GPIO_SetBits(GPIOD, GPIO_Pin_1);
+	GPIO_SetBits(BATTERY_PWR_PORT, BATTERY_PWR_PIN);
 }
 
 void  Battery_Power_Off(void) //  battery  power off 
 {
 
-GPIO_ResetBits(GPIOD, GPIO_Pin_1);
+GPIO_ResetBits(BATTERY_PWR_PORT, BATTERY_PWR_PIN);
 }
 
 // 배출 릴레이 off
 void Output_Relay_Off(void) 
 {
-	GPIO_ResetBits(GPIOB, GPIO_Pin_5);
+	GPIO_ResetBits(RELAY1_PORT, RELAY1_PIN);
 	Relay_1_Off();
 }
  
@@ -218,13 +218,13 @@ void  Cdma_Power_Off(void)
 //  junction 전원   릴레이 on
 void  Junction_Power_On(void) 
 {
-	 GPIO_ResetBits(GPIOD, GPIO_Pin_3);
+	 GPIO_ResetBits(RELAY5_PORT, RELAY5_PIN);
 }
 
 // junction power off 
 void  Junction_Power_Off(void) 
 {
- GPIO_SetBits(GPIOD, GPIO_Pin_3);
+ GPIO_SetBits(RELAY5_PORT, RELAY5_PIN);
 }
 
 /* end of file */
@@ -253,34 +253,34 @@ void Adc_Power_On(void)
 
 void Relay_1_On(void)
 {
-	GPIO_SetBits(GPIOB, GPIO_Pin_5);// Relay_1 on
+	GPIO_SetBits(RELAY1_PORT, RELAY1_PIN);// Relay_1 on
 }
 
 void Relay_1_Off(void)
 {
-	GPIO_ResetBits(GPIOB, GPIO_Pin_5);// Relay_1 off
+	GPIO_ResetBits(RELAY1_PORT, RELAY1_PIN);// Relay_1 off
 }
 
 void Relay_2_On(void)
 {
-	GPIO_SetBits(GPIOB, GPIO_Pin_8);// Relay_2 on
+	GPIO_SetBits(RELAY2_PORT, RELAY2_PIN);// Relay_2 on
 }
 
 void Relay_2_Off(void)
 {
-	GPIO_ResetBits(GPIOB, GPIO_Pin_8);// Relay_2 off
+	GPIO_ResetBits(RELAY2_PORT, RELAY2_PIN);// Relay_2 off
 }
 
 void Relay_3_On(void)
 {
 //-	GPIO_ResetBits(GPIOB, GPIO_Pin_9);// Relay_3 on
-	GPIO_SetBits(GPIOB, GPIO_Pin_9);// Relay_3 on
+	GPIO_SetBits(RELAY3_PORT, RELAY3_PIN);// Relay_3 on
 }
 
 void Relay_3_Off(void)
 {
 //-	GPIO_SetBits(GPIOB, GPIO_Pin_9);// Relay_3 off
-	GPIO_ResetBits(GPIOB, GPIO_Pin_9);// Relay_3 off
+	GPIO_ResetBits(RELAY3_PORT, RELAY3_PIN);// Relay_3 off
 }
 
 void Relay_4_On(void)
@@ -295,11 +295,11 @@ void Relay_4_Off(void)
 
 void Relay_5_On(void)
 {
-	GPIO_ResetBits(GPIOD, GPIO_Pin_3);
+	GPIO_ResetBits(RELAY5_PORT, RELAY5_PIN);
 }	
 
 void Relay_5_Off(void)
 {
-	GPIO_SetBits(GPIOD, GPIO_Pin_3);
+	GPIO_SetBits(RELAY5_PORT, RELAY5_PIN);
 }	
 

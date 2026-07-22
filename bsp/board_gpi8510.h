@@ -253,6 +253,32 @@
 #define IN4_PORT                    GPIOB
 #define IN4_PIN                     GPIO_Pin_3
 
+/* Silo status LEDs - GPIOF, active-LOW (On=ResetBits, Off=SetBits in led.c). */
+/* Pulled out of raw literals in led.c (2026-07 driver macro cleanup).        */
+#define SILO1_LED_PORT              GPIOF
+#define SILO1_LED_PIN               GPIO_Pin_7
+#define SILO2_LED_PORT              GPIOF
+#define SILO2_LED_PIN               GPIO_Pin_9
+#define SILO1_ERR_LED_PORT          GPIOF
+#define SILO1_ERR_LED_PIN           GPIO_Pin_8
+#define SILO2_ERR_LED_PORT          GPIOF
+#define SILO2_ERR_LED_PIN           GPIO_Pin_10
+
+/* Extra relays / power-control pins used by buzzer.c (2026-07 macro cleanup). */
+/* Values identical to the raw literals replaced. Legacy code has two overlap- */
+/* ping relay numberings; names follow buzzer.c's Relay_N functions.           */
+#define RELAY1_PORT                 GPIOB          /* Relay_1, Output_Relay     */
+#define RELAY1_PIN                  GPIO_Pin_5
+#define RELAY2_PORT                 GPIOB          /* Relay_2                   */
+#define RELAY2_PIN                  GPIO_Pin_8
+#define RELAY3_PORT                 GPIOB          /* Relay_3, Adc_Power        */
+#define RELAY3_PIN                  GPIO_Pin_9
+#define RELAY5_PORT                 GPIOD          /* Relay_5, Junction_Power   */
+#define RELAY5_PIN                  GPIO_Pin_3
+#define BATTERY_PWR_PORT            GPIOD          /* Battery_Power             */
+#define BATTERY_PWR_PIN             GPIO_Pin_1
+/* (Relay_4 = modem power = MODEM_PWR_* ; OUT1..4 = First..Fourth_Relay.)       */
+
 /*==============================================================================
  * 9. MODEM CONTROL (CDMA/LTE)                  [OK: buzzer.c, key.c, main.c]
  *============================================================================*/
